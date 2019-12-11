@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script>
+            
+            function showData(){
+               var jsonArray=[
+    {
+        "PRN" : 1,
+        "NAME" : "Amit",
+        "Marks" : {
+            "DBMS" : 20,
+            "AWP" :  45,
+            "OS" : 46 
+        },
+        "Contact" : ["9826644321"],
+        "Percent" : 66
+    },
+    {
+        "PRN" : 2,
+        "NAME" : "Rohan",
+        "Marks" : {
+            "DBMS" : 20,
+            "AWP" :  10,
+            "OS" : 15 
+        },
+        "Contact" : ["9826624321","241234347"],
+        "Percent" : 15
+    },
+    {
+        "PRN" : 3,
+        "NAME" : "Ankur",
+        "Marks" : {
+            "DBMS" : 32,
+            "AWP" :  9,
+            "OS" : 18 
+        },
+        "Contact" : ["8768875431","644563234"],
+        "Percent" : 56
+    }
+]
+
+var contents="<table border='1'>";
+                    
+                    for(i=0; i<jsonArray.length;i++)
+                    {
+                        
+                        var obj = jsonArray[i];
+                        console.log(obj.Contact)
+                        var row = "<tr>"
+                            + "<td>" + obj.PRN + "</td>"
+                            + "<td>" + obj.NAME + "</td>"
+                            + "<td>" + obj.Marks.DBMS + "</td>"
+                            + "<td>" + obj.Marks.AWP + "</td>"
+                            + "<td>" + obj.Marks.OS + "</td>"
+                            + "<td>" + obj.Contact + "</td>"
+                            + "<td>" + obj.Percent + "</td>"
+                            +"</tr>";
+                        contents += row;
+
+                    }
+                    contents += "</table>";
+                    document.getElementById("output").innerHTML =
+                     contents;
+              
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="showData()">Show Table</button><br>
+        <div id="output">
+
+        </div>
+    </body>
+</html>

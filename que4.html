@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>jQuery Slide show</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="que4.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        /* function createSlideShow() {
+            console.log("Inside createSlideShow");
+            var $active = $('#slideshow IMG.ACTIVE');
+            var $next = $active.next();
+
+            $next.addClass('active');
+            $active.removeClass('active');
+
+            $(function () {
+                console.log("Inside interval");
+                setInterval("createSlideShow()", 5000);
+
+            });
+        } */
+        $(document).ready(function () {
+            createSlideShow();
+        });
+
+        function createSlideShow() {
+           // console.log("Inside createSlideShow");
+            var $active = $('#slideshow IMG.ACTIVE');
+            var $next = $active.next();
+            $next.addClass('active');
+            $active.removeClass('active');
+            console.log("Inside interval");
+            setInterval("createSlideShow()", 5000);
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="slideshow">
+        <h2>Car slide show</h2>
+        <img src="F:\VK\Advanced Web Programming\Images\car-1.jpg" class="active" alt="car1">
+        <img src="F:\VK\Advanced Web Programming\Images\car-2.jpg" alt="car2">
+        <img src="F:\VK\Advanced Web Programming\Images\car-3.jpg" alt="car3">
+        <img src="F:\VK\Advanced Web Programming\Images\car-4.jpg" alt="car4">
+        <img src="F:\VK\Advanced Web Programming\Images\car-5.jpg" alt="car5">
+    </div>
+</body>
+
+</html>

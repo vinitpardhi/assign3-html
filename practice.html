@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function myFunction()
+{   var text,i;
+    var cars=["saab","volvo","BMW"];
+    var CLen=cars.length;
+    text = "<ul>";
+        for(i = 0;i < Clen; i++)
+        {
+            text += "<li>" + cars[i]+"</li>";
+        }
+
+        text+="/ul";
+    document.getElementById("demo").innerHTML=cars+"<br>"+typeof cars+"<br>"+cars.length+"<br>"+cars.sort()+text;
+    
+        
+}    
+</script>
+</head>
+
+<body>
+<h1>A web page </h1>
+<p id="demo">A paragraph</p>
+<button type="button" onclick="myFunction()">click here</button>
+</body>
+
+</html>

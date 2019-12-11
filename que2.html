@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script>
+            var obj=[
+                    {
+                        "itemname" : "Shoe",
+                        "price" : 2500,
+                        "category" : "Personel"
+                    },
+                    {
+                        "itemname" : "T-shirt",
+                        "price" : 1500,
+                        "category" : "Garments"
+                    },
+                    {
+                        "itemname" : "Book-Ignited Minds",
+                        "price" : 350,
+                        "category" : "Stationary"
+                    }
+
+                ]
+            function showTable(){
+                var contents="<table border='1'";
+                
+                contents += "<tr><td><h4>Item Name</h4></td><td><h4>Price </h4></td><td><h4>Category </h4></td><td><h4>Check </h4></td></tr>"
+            
+                for(i=0;i<obj.length;i++)
+                {
+                    var o=obj[i];
+                    
+                    var row="<tr>"
+                    + "<td>" + o.itemname + "</td>"
+                    + "<td>" + o.price + "</td>"
+                    + "<td>" + o.category + "</td>"
+                    + "<td>" + "<input type='checkbox'>" + "</td>"
+                    + "</tr>"
+                    
+                contents += row;
+                }
+                contents += "</table>";
+                document.getElementById("output").innerHTML = contents;
+            }
+
+            function addToList()
+            {
+                var itemObj= {
+                    "itemname" : document.getElementById("input1").value ,
+                    "price" : document.getElementById("input2").value,
+                    "category" : document.getElementById("input3").value
+                }
+                obj.push(itemObj);
+                document.getElementById("input1").value="";
+                document.getElementById("input2").value="";
+                document.getElementById("input3").value="";
+            }
+        </script>
+        <style>
+            tr:nth-child(even){
+                background-color: aqua;
+            }
+            tr:nth-child(odd){
+                background-color: cadetblue;
+            }
+            tr:nth-child(1){
+                background-color: coral;
+            }
+        </style>
+    </head>
+    <body>
+        Item Name : <input id="input1" type="text" /> <br>
+        Price     : <input id="input2" type="text" /> <br>
+        Category  : <input id="input3" type="text" /> <br>
+        <button onclick="addToList()">Add To List</button>
+        <button onclick="showTable()">Show Table</button>
+        <div id="output">
+            
+        </div>
+    </body>
+</html>

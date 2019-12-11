@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <script>
+        function dataAvailable() {
+            if (this.readyState == 4 && this.status == 200) {
+
+                var jsonArray = JSON.parse(this.responseText);
+
+                var contents = "<table class='header' border='1'>";
+                contents += "<thead><h4><tr><th>User Id</th><th>ID</th><th>Title</th><th>Body</th></tr> </h4></thead><tbody>"
+                for (i = 0; i < jsonArray.length; i++) {
+                    var obj = jsonArray[i];
+                    var row = "<tr>" + "<td>" + obj.userId + "</td>"
+                        + "<td>" + obj.id + "</td>"
+                        + "<td>" + obj.title + "</td>"
+                        + "<td>" + obj.body + "</td>"
+                        + "</tr>";
+                    contents += row;
+
+                }
+                contents += "</tbody></table>";
+                document.getElementById("output").innerHTML = contents;
+            }
+        }
+        function downloadJSON() {
+            var jsonURL = "https://jsonplaceholder.typicode.com/posts";
+            var httpReq = new XMLHttpRequest();
+            httpReq.onreadystatechange = dataAvailable;
+            httpReq.open("GET", jsonURL, true);
+            httpReq.send();
+
+        }
+    </script>
+    <style>
+        /* tr:nth-child(odd){
+                background-color: coral;
+            }
+            tr:nth-child(even){
+                background-color: darksalmon;
+            }
+            tr:nth-child(1){
+                background-color: indianred;
+            } */
+        /* tr:nth-child(1){
+                overflow: hidden;
+                position: sticky;
+                background-color: aqua;
+                top: 0px;
+            } */
+        .header {
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: beige;
+            color: azure;
+            tr {
+                display: block;
+                position: relative;
+
+            }
+        }
+
+        /* th {
+            position: sticky;
+            background-color: chartreuse;
+        } */
+    </style>
+</head>
+
+<body>
+    <button onclick="downloadJSON()">Show Table</button><br>
+
+    <div id="output">
+
+    </div>
+</body>
+
+</html>
